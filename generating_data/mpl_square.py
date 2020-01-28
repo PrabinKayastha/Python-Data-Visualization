@@ -12,6 +12,11 @@ ax.set_title("Square Numbers", fontsize = 25)
 ax.set_xlabel("Value", fontsize  =15)
 ax.set_ylabel("Square of Value", fontsize  =15)
 
+
+# Change the sixe of ticks in label.
+ax.tick_params(axis='both', labelsize=15)
+
+
 plt.show()
 
 
