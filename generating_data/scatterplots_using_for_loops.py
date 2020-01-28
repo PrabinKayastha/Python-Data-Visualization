@@ -8,7 +8,7 @@ y_val = [x**2 for x in x_val]
 
 
 fig, ax = plt.subplots()
-ax.scatter(x_val, y_val, c='black', s=25)
+ax.scatter(x_val, y_val, c=y_val, cmap=plt.cm.Blues, s=15)
 
 ax.set_title('Squares scatterplots', fontsize = 25)
 ax.set_xlabel('x_val', fontsize = 15)
