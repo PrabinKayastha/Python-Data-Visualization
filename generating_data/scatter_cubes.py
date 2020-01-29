@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 plt.style.use('fivethirtyeight')
 
-x_val = [x for x in range(1000)]
+x_val = [x for x in range(5000)]
 y_val = [x**3 for x in x_val]
 
 fig, ax = plt.subplots()
