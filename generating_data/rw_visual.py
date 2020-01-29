@@ -14,6 +14,16 @@ while True:
     fig, ax = plt.subplots()
     point_numbers = range(rw.num_points)
     ax.scatter(rw.x_values, rw.y_values,c=point_numbers, cmap=plt.cm.Blues, edgecolors='None', s = 5)
+
+    # Emphasize the starting and ending points.
+    ax.scatter(rw.x_values[0], rw.y_values[0],c='Green', edgecolors='None', s = 100)
+    ax.scatter(rw.x_values[-1], rw.y_values[-1],c='Red', edgecolors='None', s = 100)
+
+    # Remove the axes.
+    ax.get_xaxis().setvisible(False)
+    ax.get_yaxis().setvisible(False)
+
+
     plt.show()
 
     keep_running = input('Make another walk? (y/n) :')
@@ -25,6 +35,3 @@ while True:
             print('Exiting the walk.')
         break
 
-
-
-# %%
