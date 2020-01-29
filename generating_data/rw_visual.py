@@ -6,7 +6,7 @@ from random_walk import RandomWalk
 # Generate the random walks as long as the program is active
 while True:
     # Make a random walk.
-    rw = RandomWalk()
+    rw = RandomWalk(5000)
     rw.fill_walk()
 
     # Plot the points in a walk.
@@ -20,8 +20,8 @@ while True:
     ax.scatter(rw.x_values[-1], rw.y_values[-1],c='Red', edgecolors='None', s = 100)
 
     # Remove the axes.
-    ax.get_xaxis().setvisible(False)
-    ax.get_yaxis().setvisible(False)
+    ax.get_xaxis().set_visible(False)
+    ax.get_yaxis().set_visible(False)
 
 
     plt.show()
@@ -35,3 +35,6 @@ while True:
             print('Exiting the walk.')
         break
 
+
+
+# %%
