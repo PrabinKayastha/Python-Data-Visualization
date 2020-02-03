@@ -1,9 +1,10 @@
 #%%
 import csv
 import matplotlib.pyplot as plt
+from datetime import datetime
 
 
-filename = '..././data/the_csv_file_format/data/"sitka_weather_07_2018_simple.csv"'
+filename = '../data/the_csv_file_format/data/sitka_weather_07_2018_simple.csv'
 with open(filename, 'r') as f:
     reader = csv.reader(f)
     header_row = next(reader)
@@ -16,18 +17,20 @@ with open(filename, 'r') as f:
 
 # print(date_temp_highs)
 
-dates = [i[0] for i in date_temp_highs]
+dates = [datetime.strptime(i[0], '%Y-%m-%d') for i in date_temp_highs]
 max_temp = [i[1] for i in date_temp_highs]
 
 plt.style.use('fivethirtyeight')
 
 fig, ax = plt.subplots()
-ax.plot(dates, max_temp, c='red')
+ax.plot(dates, max_temp, c='Red')
 
 # Format plot
-plt.title('Daily high temperatures, July 2018', font=24)
-plt.xlabel('date', fontsize = 16)
-plt.ylabel('Temperatures', fontsize = 16)
-plt.tick_params(axis='both', which='major', lablesize=16)
-
+ax.set_title('Daily high temperatures, July 2018', fontsize=24)
+ax.set_xlabel('Dates in July:', fontsize = 16)
+fig.autofmt_xdate()
+ax.set_ylabel('Temperatures:', fontsize = 16)
+ax.tick_params(axis='both', which= 'major', labelsize=10)
 plt.show()
+
+# %%
