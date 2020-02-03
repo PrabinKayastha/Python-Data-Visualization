@@ -10,23 +10,25 @@ with open(filename, 'r') as f:
     header_row = next(reader)
     
     # get high temperatures from the file.
-    date_temp_highs = []
+    date_temp_highs_lows = []
     for row in reader:
-        high = (row[2], row[5])
-        date_temp_highs.append(high)
+        date_high_low = (row[2], row[5], row[6])
+        date_temp_highs_lows.append(date_high_low)
 
 # print(date_temp_highs)
 
-dates = [datetime.strptime(i[0], '%Y-%m-%d') for i in date_temp_highs]
-max_temp = [i[1] for i in date_temp_highs]
+dates = [datetime.strptime(i[0], '%Y-%m-%d') for i in date_temp_highs_lows]
+max_temp = [i[1] for i in date_temp_highs_lows]
+min_temp = [i[2] for i in date_temp_highs_lows]
 
 plt.style.use('fivethirtyeight')
 
 fig, ax = plt.subplots()
-ax.plot(dates, max_temp, c='Red')
+ax.plot(dates, min_temp, c='Blue', linewidth = 1)
+ax.plot(dates, max_temp, c='Red', linewidth = 1)
 
 # Format plot
-ax.set_title('Daily high temperatures, 2018', fontsize=24)
+ax.set_title('Daily high and low temperature, 2018', fontsize=24)
 ax.set_xlabel('Dates 2018:', fontsize = 16)
 fig.autofmt_xdate()
 ax.set_ylabel('Temperatures:', fontsize = 16)
