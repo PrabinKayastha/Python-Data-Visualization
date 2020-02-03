@@ -23,7 +23,7 @@ with open(filename, 'r') as f:
             high = float(row[4])
             low = float(row[5])
         except ValueError:
-            print('Data not present for {date}')
+            print(f'Data not present for {date}')
         else:
             dates.append(date)
             highs.append(high)
