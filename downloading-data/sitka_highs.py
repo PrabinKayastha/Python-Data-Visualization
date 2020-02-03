@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from datetime import datetime
 
 
-filename = '../data/the_csv_file_format/data/sitka_weather_07_2018_simple.csv'
+filename = '../data/the_csv_file_format/data/sitka_weather_2018_simple.csv'
 with open(filename, 'r') as f:
     reader = csv.reader(f)
     header_row = next(reader)
@@ -26,8 +26,8 @@ fig, ax = plt.subplots()
 ax.plot(dates, max_temp, c='Red')
 
 # Format plot
-ax.set_title('Daily high temperatures, July 2018', fontsize=24)
-ax.set_xlabel('Dates in July:', fontsize = 16)
+ax.set_title('Daily high temperatures, 2018', fontsize=24)
+ax.set_xlabel('Dates 2018:', fontsize = 16)
 fig.autofmt_xdate()
 ax.set_ylabel('Temperatures:', fontsize = 16)
 ax.tick_params(axis='both', which= 'major', labelsize=10)
