@@ -18,14 +18,15 @@ with open(filename, 'r') as f:
 # print(date_temp_highs)
 
 dates = [datetime.strptime(i[0], '%Y-%m-%d') for i in date_temp_highs_lows]
-max_temp = [i[1] for i in date_temp_highs_lows]
-min_temp = [i[2] for i in date_temp_highs_lows]
-
+max_temp = [float(i[1]) for i in date_temp_highs_lows]
+min_temp = [float(i[2]) for i in date_temp_highs_lows]
+print(list(zip(dates, max_temp, min_temp)))
 plt.style.use('fivethirtyeight')
 
 fig, ax = plt.subplots()
-ax.plot(dates, min_temp, c='Blue', linewidth = 1)
-ax.plot(dates, max_temp, c='Red', linewidth = 1)
+ax.plot(dates, min_temp, c='Blue', linewidth = 1, alpha=0.75)
+ax.plot(dates, max_temp, c='Red', linewidth = 1, alpha=0.75)
+plt.fill_between(dates, max_temp, min_temp, facecolor='blue', alpha = 0.1)
 
 # Format plot
 ax.set_title('Daily high and low temperature, 2018', fontsize=24)
